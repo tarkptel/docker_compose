@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>No Nginx Frontend</title>
+</head>
+<body>
+  <h1>Frontend without Nginx</h1>
+  <button onclick="callBackend()">Call Backend</button>
+  <p id="result"></p>
+
+  <script>
+    function callBackend() {
+      fetch("http://backend:5000/api/message")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("result").innerText = data.msg;
+        });
+    }
+  </script>
+</body>
+</html>
